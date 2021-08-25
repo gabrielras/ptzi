@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Order < ApplicationRecord
   belongs_to :user
-  
+
   validates :imei, presence: true
   validates :annual_price, presence: true
   validates :device_model, presence: true
@@ -18,8 +20,6 @@ class Order < ApplicationRecord
   private
 
   def imei_must_be_a_valid_number
-    unless ImeiValidator.new(imei).result
-      errors.add(:imei, 'imei is not a valid number')
-    end
+    errors.add(:imei, 'imei is not a valid number') unless ImeiValidator.new(imei).result
   end
 end

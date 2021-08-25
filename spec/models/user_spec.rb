@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:cpf) }
 
     it { is_expected.to validate_length_of(:name).is_at_least(3) }
+    it { is_expected.to validate_length_of(:name).is_at_least(3) }
 
     context 'when the cpf is valid' do
       subject(:user) { described_class.new(cpf: '329.726.820-41') }
@@ -31,8 +32,11 @@ RSpec.describe User, type: :model do
       end
     end
 
+    it { is_expected.to allow_value('email@addresse.com').for(:email) }
+    it { is_expected.to_not allow_value('info.com').for(:email) }
+
     subject { User.new(name: 'user') }
     it { should validate_uniqueness_of(:cpf) }
     it { should validate_uniqueness_of(:email) }
-  end  
+  end
 end

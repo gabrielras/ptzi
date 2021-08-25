@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_08_21_185853) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.float "imei"
+    t.decimal "imei"
     t.float "annual_price"
     t.string "device_model"
     t.integer "installments"
