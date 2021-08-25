@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :user do
-    name { 'User Test' }
-    email { 'test@test.com' }
-    cpf { '329.726.820-41' }
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    cpf { Faker::IDNumber.brazilian_citizen_number }
   end
 end
