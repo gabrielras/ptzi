@@ -1,0 +1,23 @@
+<div class="container column is-10">
+  <div class="column is-3">
+    <%= link_to "Criar Usuário", new_user_path, class: 'button is-info is-fullwidth is-uppercase' %>
+  </div>
+
+  <% if @users.blank? %>
+    <p>Cadastre um usuário :)</p>
+  <% else %>
+    <% @users.each do |user| %>
+      <div class="columns" style="padding: 0px;margin-bottom: 0px;">   
+        <div class="column is-5 is-offset-2">
+          <p class="f4"><%=  user['name'] %></p>
+          <p>CPF: <%= user['cpf'] %></p>
+          <p>E-mail: <%= user['email'] %></p>
+          <%= link_to "Editar", edit_user_path(id: user['id']), class: 'button is-warning is-fullwidth is-uppercase' %>
+          <%= button_to "Deletar", {:controller => :users, :action => 'destroy', :id => user['id'] }, :method => :delete ,
+            class: 'button is-danger is-fullwidth is-uppercase'%>
+        </div>
+        <hr class="hr-color" style="padding: 0px; margin-top: 0px;" />
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -16,4 +16,21 @@
  @import "bulma/bulma";
  @import "@fortawesome/fontawesome-free/css/fontawesome.min.css"; 
  @import "@fortawesome/fontawesome-free/css/solid.min.css";
- @import "bulma-quickview/dist/css/bulma-quickview";
+
+ html, body, #app {
+    height: 100%;
+  }
+  #app {
+    margin-top: 20px;
+    min-height: 100%;
+    //display: flex;
+    //flex-direction: column;
+  }
+  .footer {
+    margin-top: -12px;
+  }
+  @media screen and (max-width: 768px) {
+    #menu-toggle:checked + .nav-menu {
+      display: block;
+    }
+  }

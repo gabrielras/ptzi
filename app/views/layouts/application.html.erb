@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pitzi</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-widthm initial-scale=1">
+    <meta name="author" content="Ptizi">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="theme-color" content="white"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="app">
+      <% if flash[:notice] %>
+      <div class="notification is-success global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="notification is-danger global-notification">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
+      <section class="main-content columns is-fullheight is-centered">
+        <%= render partial: 'layouts/sidebar' %>
+        <%= yield %>
+      </section>    
+    </div>
   </body>
 </html>

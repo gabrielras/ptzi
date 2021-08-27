@@ -1,0 +1,23 @@
+<div class="container column is-10">
+  <div class="column is-3">
+    <%= link_to "Criar Pedido", new_order_path, class: 'button is-info is-fullwidth is-uppercase' %>
+  </div>
+
+  <% if @orders.blank? %>
+    <p>Cadastre um Pedido :)</p>
+  <% else %>
+    <% @orders.each do |order| %>
+      <div class="columns" style="padding: 0px;margin-bottom: 0px;">   
+        <div class="column is-5 is-offset-2">
+          <p class="f4">ID: <%=  order['id'] %></p>
+          <p>Imei: <%= order['imei'] %></p>
+          <p>Valor Anual: <%= order['annual_price'] %></p>
+          <p>Parcelas: <%= order['installments'] %></p>
+          <%= button_to "Deletar", {:controller => :orders, :action => 'destroy', :id => order['id'] }, :method => :delete,
+            class: 'button is-danger is-fullwidth is-uppercase' %>
+        </div>
+        <hr class="hr-color" style="padding: 0px; margin-top: 0px;" />
+      </div>
+    <% end %>
+  <% end %>
+</div>
