@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Link para a documentação da API:
+https://documenter.getpostman.com/view/4951788/TzzHkYQ9
 
-Things you may want to cover:
+Para Gerenciamento da API foi utilizada a gem 'grape';
 
-* Ruby version
+Para Gerenciamento das Actions foi utilizado a gem 'service_actor';
 
-* System dependencies
+Também foi criado um Services para comunicação interna com a API utilizado gem 'httparty';
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Os testes foram implementados em Rspec;
